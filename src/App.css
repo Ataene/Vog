@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.nav-unordered-list {
+  margin: 0;
+  paddding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 3px;
+  color: red;
+  list-style: none;
+}
+
+.nav-list {
+  color: green;
+  /* text-decoration: none; */
+}
