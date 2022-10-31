@@ -6,6 +6,7 @@ const initialState = {
   itemToEdit: null,
   itemToDelete: null,
   postalInfo: null,
+  getUniversity: [],
 };
 
 //Reducer function
@@ -22,6 +23,8 @@ export const itemReducer = (state = initialState, { type, payload }) => {
       return { ...state, itemToDelete: payload };
     case ActionTypes.FETCH_ITEM:
       return { ...state, selectedItem: payload };
+    case ActionTypes.FETCH_UNIVERSITY: //Question 3
+      return { ...state, getUniversity: payload };
     case ActionTypes.SEARCH_POSTAL: //Question4
       return { ...state, postalInfo: payload };
     default:

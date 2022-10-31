@@ -32,10 +32,10 @@ export const postItem = ({ title, body, numberId }) => {
         headers: { "Content-Type": "application/json" },
         body: data,
       });
-      if (response === 200 ){
+      if (response === 200) {
         return response;
       } else {
-        console.log("error in post request")
+        console.log("error in post request");
       }
       dispatch({ type: ActionTypes.POST_ITEM, payload: response });
     } catch (error) {
@@ -89,20 +89,48 @@ export const fetchItemToDelete = (id) => {
   };
 };
 
-
-
 //Question 4 Handle Postal Search
 ///SEARCH POSTAL CODE
 export const searchPostal = (postal) => {
-    const dataUrl = `https://api.zippopotam.us/us/${postal}`;
-  
-    return async (dispatch) => {
-      try {
-        const response = await fetch(dataUrl);
-        let responseData = await response.json();
-        dispatch({ type: ActionTypes.SEARCH_POSTAL, payload: responseData });
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
+  const dataUrl = `https://api.zippopotam.us/us/${postal}`;
+
+  return async (dispatch) => {
+    try {
+      const response = await fetch(dataUrl);
+      let responseData = await response.json();
+      dispatch({ type: ActionTypes.SEARCH_POSTAL, payload: responseData });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
+};
+
+//Get all the University with Country
+export const fetchUniversity = () => {
+  const dataUrl = `http://universities.hipolabs.com/search?country=Canada`;
+  return async (dispatch) => {
+    try {
+      const response = await fetch(dataUrl);
+      let responseData = await response.json();
+
+      dispatch({ type: ActionTypes.FETCH_UNIVERSITY, payload: responseData });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
+
+//Search for Country
+export const countryDropDown = () => {
+  const dataUrl = `https://countriesnow.space/api/v0.1/countries/info?returns=none`;
+
+  return async (dispatch) => {
+    try {
+      const response = await fetch(dataUrl);
+      let responseData = await response.json();
+      dispatch({ type: ActionTypes.COUNTRY_DROPDOWN, payload: responseData });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+};
