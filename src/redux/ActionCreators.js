@@ -88,3 +88,21 @@ export const fetchItemToDelete = (id) => {
     }
   };
 };
+
+
+
+//Question 4 Handle Postal Search
+///SEARCH POSTAL CODE
+export const searchPostal = (postal) => {
+    const dataUrl = `https://api.zippopotam.us/us/${postal}`;
+  
+    return async (dispatch) => {
+      try {
+        const response = await fetch(dataUrl);
+        let responseData = await response.json();
+        dispatch({ type: ActionTypes.SEARCH_POSTAL, payload: responseData });
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+  };
