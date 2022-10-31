@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import GetHome from "../components/GetHome";
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <>
+      <GetHome />
+    </>
+  );
+};
 
-export default Home
+export default Home;
