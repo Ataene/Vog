@@ -9,42 +9,38 @@ const Universities = () => {
 
   const dispatch = useDispatch();
 
-  //   const allState = useSelector((state) => state);
-
-  // const [country, setCountry] = useState("");
-
   useEffect(() => {
     dispatch(fetchUniversity());
     dispatch(countryDropDown());
-  }, []);
+  });
 
-  useEffect(() => {
-    console.log(universityData);
-  }, [universityData]);
-
-  useEffect(() => {
-    console.log(countryData);
-  }, [countryData]);
   return (
     <div>
       <div>
         <h1>Limit of five items</h1>
         {universityData &&
-          universityData.slice(0, 5).map((item) => (
-            <div key={item.id}>
+          universityData.slice(0, 5).map((item, index) => (
+            <div key={index}>
+              <h2 className="university-list">{item.domains[0]}</h2>
+              <h3 className="university-list">{item.domains[1]}</h3>
+              <h1 className="university-list">{item["alpha_two_code"]}</h1>
+              <h1 className="university-list">{item["web_pages"][0]}</h1>
+              <h1 className="university-list">{item["web_pages"][1]}</h1>
+              <h1 className="university-list">{item["web_pages"][2]}</h1>
               <h1 className="university-list">{item.country}</h1>
+              <h1 className="university-list">{item["state-province"]}</h1>
               <p>{item.name}</p>
             </div>
           ))}
       </div>
       <hr />
-      <h1 style={{ color: "green" }}>Post begins here</h1>
+      <h3 style={{ color: "green" }}>Country Dropdown Menu</h3>
       <div className="university-post"></div>
       <h1 htmlFor="Country">Select a Country </h1>
-      <select style={{marginBottom: 100}}>
+      <select style={{ marginBottom: 100 }}>
         <option>Select your country</option>
-        {countryData.map((item) => (
-          <option>{item.name}</option>
+        {countryData.map((item, index) => (
+          <option key={index}>{item.name}</option>
         ))}
       </select>
     </div>

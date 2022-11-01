@@ -4,12 +4,10 @@ import { searchPostal } from "../redux/ActionCreators";
 
 const PostalLookup = () => {
   const postalData = useSelector((state) => state.postalInfo);
-  const allState = useSelector((state) => state);
-
-  console.log(allState);
 
   const dispatch = useDispatch();
   const [code, setCode] = useState("");
+  console.log("111", searchPostal);
 
   const handleSubmit = async (event) => {
     if (event.key === "Enter") {
@@ -35,12 +33,14 @@ const PostalLookup = () => {
       <div>
         {postalData && (
           <>
+            <p>Country: {postalData["post code"]}</p>
             <p>Country: {postalData.country}</p>
             <p>Abbreviation: {postalData["country abbreviation"]}</p>
-            <p>State: {postalData.places[0].state}</p>
-            <p>Longitude: {postalData.places[0].longitude}</p>
-            <p>Latitude{postalData.places[0].latitude}</p>
             <p>Place: {postalData.places[0]["place name"]}</p>
+            <p>Longitude: {postalData.places[0].longitude}</p>
+            <p>State: {postalData.places[0].state}</p>
+            <p>Latitude{postalData.places[0]["state abbreviation"]}</p>
+            <p>Latitude{postalData.places[0].latitude}</p>
           </>
         )}
       </div>
