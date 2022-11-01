@@ -5,17 +5,25 @@ const Navigations = () => {
   return (
     <>
       <ul className="nav-unordered-list">
-      <li>
-          <Link to="/" style={{color: "green", fontSize: 20}}>LaunchPad</Link>
+        <li>
+          <Link className="list-style" to="/">
+            LaunchPad
+          </Link>
         </li>
         <li>
-          <Link to="/">Home</Link>
+          <Link className="list-style" to="/">
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/universities">Universities</Link>
+          <Link className="list-style" to="/universities">
+            Universities
+          </Link>
         </li>
         <li>
-          <Link to="/postalLookup">Postal lookup</Link>
+          <Link className="list-style" to="/postalLookup">
+            Postal lookup
+          </Link>
         </li>
       </ul>
     </>

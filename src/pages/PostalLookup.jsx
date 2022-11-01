@@ -4,10 +4,10 @@ import { searchPostal } from "../redux/ActionCreators";
 
 const PostalLookup = () => {
   const postalData = useSelector((state) => state.postalInfo);
-  const allState = useSelector((state) => state)
+  const allState = useSelector((state) => state);
 
-  console.log(allState)
-  
+  console.log(allState);
+
   const dispatch = useDispatch();
   const [code, setCode] = useState("");
 
@@ -19,8 +19,11 @@ const PostalLookup = () => {
 
   return (
     <>
+      <div className="postal">
+        <h1>Please Enter a Postal Code to begin Search</h1>
+      </div>
       <input
-        style={{ marginTop: 50 }}
+        className="postal-input"
         type="text"
         placeholder="Enter Code"
         value={code}

@@ -19,29 +19,13 @@ const Modal = ({ closeModal }) => {
     setNumberId("");
   };
 
-  const modalContainer = {
-    with: "100vh",
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alighnItems: "center",
-  };
-  const modalItem = {
-    width: "500px",
-    height: "150px",
-    backgroundColor: "gray",
-    display: "flex",
-    flexDirection: "column",
-    borderRadius: "10px",
-  };
-
   return (
     <>
-      <div style={modalContainer}>
-        <form style={modalItem} onSubmit={handlePost}>
+      <div className="modal-container">
+        <form className="modal-item" onSubmit={handlePost}>
           <div>
             <button
-              style={{ backgroundColor: "yellow" }}
+              style={{ backgroundColor: "red" }}
               onClick={() => closeModal(false)}
             >
               Close

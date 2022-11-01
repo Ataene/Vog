@@ -128,7 +128,8 @@ export const countryDropDown = () => {
     try {
       const response = await fetch(dataUrl);
       let responseData = await response.json();
-      dispatch({ type: ActionTypes.COUNTRY_DROPDOWN, payload: responseData });
+      let data = responseData.data
+      dispatch({ type: ActionTypes.COUNTRY_DROPDOWN, payload: data });
     } catch (error) {
       console.log(error.message);
     }
