@@ -64,8 +64,7 @@ export const fetchItemToEdit = (id) => {
   return async (dispatch) => {
     try {
       const response = await fetch(dataUrl);
-      let responseData = await response.json();
-      dispatch({ type: ActionTypes.EDIT_SELECTED_ITEM, payload: responseData });
+      dispatch({ type: ActionTypes.EDIT_SELECTED_ITEM, payload: response });
     } catch (error) {
       console.log(error.message);
     }
@@ -78,10 +77,9 @@ export const fetchItemToDelete = (id) => {
   return async (dispatch) => {
     try {
       const response = await fetch(dataUrl);
-      let responseData = await response.json();
       dispatch({
         type: ActionTypes.DELETE_SELECTED_ITEM,
-        payload: responseData,
+        payload: response,
       });
     } catch (error) {
       console.log(error.message);
@@ -128,7 +126,7 @@ export const countryDropDown = () => {
     try {
       const response = await fetch(dataUrl);
       let responseData = await response.json();
-      let data = responseData.data
+      let data = responseData.data;
       dispatch({ type: ActionTypes.COUNTRY_DROPDOWN, payload: data });
     } catch (error) {
       console.log(error.message);
