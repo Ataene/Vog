@@ -35,7 +35,7 @@ const GetHome = () => {
         {items &&
           items.slice(0, 2).map((item) => (
             <div key={item.id}>
-              <h1>T{item.title.slice(0, 20)}</h1>
+              <h1>{item.title.slice(0, 20)}</h1>
               <p>{item.body.slice(0, 50)}</p>
               <p>{item.id}</p>
             </div>
@@ -50,6 +50,7 @@ const GetHome = () => {
       <div>{openModal && <Modal closeModal={setOpenModal} />}</div>
       {/* Below can be separated into a different component, if the file get larger, for scalability */}
       <hr />
+      <h1>Enter an Id to search details</h1>
       <input
         value={search}
         onChange={(event) => {

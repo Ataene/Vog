@@ -38,14 +38,15 @@
 }
 
 .nav-unordered-list {
-  margin: 0;
-  paddding: 0;
+  margin: 5px;
+  paddding: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   margin-top: 3px;
   color: red;
   list-style: none;
+  background-color: #E6CBA8
 }
 
 .nav-list {

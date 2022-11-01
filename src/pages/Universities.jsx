@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUniversity, countryDropDown } from "../redux/ActionCreators";
 
 const Universities = () => {
-  const postalData = useSelector((state) => state.getUniversity);
+  const universityData = useSelector((state) => state.getUniversity);
   const countryData = useSelector((state) => state.countrySelect);
 
   const dispatch = useDispatch();
@@ -19,8 +19,8 @@ const Universities = () => {
   }, []);
 
   useEffect(() => {
-    console.log(postalData);
-  }, [postalData]);
+    console.log(universityData);
+  }, [universityData]);
 
   useEffect(() => {
     console.log(countryData);
@@ -28,9 +28,9 @@ const Universities = () => {
   return (
     <div>
       <div>
-        <h1>Limit of two items</h1>
-        {postalData &&
-          postalData.slice(0, 2).map((item) => (
+        <h1>Limit of five items</h1>
+        {universityData &&
+          universityData.slice(0, 5).map((item) => (
             <div key={item.id}>
               <h1 className="university-list">{item.country}</h1>
               <p>{item.name}</p>
@@ -38,17 +38,15 @@ const Universities = () => {
           ))}
       </div>
       <hr />
-      <h1>Post begins here</h1>
+      <h1 style={{ color: "green" }}>Post begins here</h1>
       <div className="university-post"></div>
-      <label htmlFor="Country">Select a Country </label>
-      <div>
-        <select name="counrty">
-          {countryData &&
-            countryData
-              .slice(0, 2)
-              .map((item) => <option key={item.id} value={item.name}></option>)}
-        </select>
-      </div>
+      <h1 htmlFor="Country">Select a Country </h1>
+      <select style={{marginBottom: 100}}>
+        <option>Select your country</option>
+        {countryData.map((item) => (
+          <option>{item.name}</option>
+        ))}
+      </select>
     </div>
   );
 };
